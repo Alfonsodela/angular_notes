@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EditNotesRoutingModule } from './edit-notes-routing.module';
 import { EditNotesComponent } from './edit-notes.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { EditNotesComponent } from './edit-notes.component';
   ],
   imports: [
     CommonModule,
-    EditNotesRoutingModule
+    EditNotesRoutingModule,
+    SharedModule
   ]
 })
 export class EditNotesModule { }
