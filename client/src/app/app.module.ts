@@ -11,6 +11,8 @@ import { HomeModule } from './pages/home/home.module';
 import { NotesDetailModule } from './pages/notes-detail/notes-detail.module';
 import { NotesListModule } from './pages/notes-list/notes-list.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,17 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -22,6 +23,19 @@ const routes: Routes = [
   {
     path: 'edit-notes',
     loadChildren: () => import('src/app/pages/edit-notes/edit-notes.module').then(m => m.EditNotesModule)
+  },
+  {
+    path: `user-profile/:id`, loadChildren: () =>
+      import('./pages/user-profile/user-profile.module').then(m => m.UserProfileRoutingModule),
+      canActivate: [AuthGuard] //Con esto protegemos esta ruta
+  },
+  {
+    path: `sign-up`, loadChildren: () =>
+      import('./pages/singup/singup.module').then(m => m.SingupModule)
+  },
+  {
+    path: `log-in`, loadChildren: () =>
+      import('./pages/singing/singing-routing.module').then(m => m.SingingRoutingModule)
   }
 ];
 

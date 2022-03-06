@@ -1,1 +1,10 @@
-<p>nav works!</p>
+<div>
+    <h2>Angular Auth</h2>
+    <nav>
+        <a *ngIf="!this.authService.isLoggedIn">User Profile</a>
+        <a *ngIf="this.authService.isLoggedIn" routerLinkActive="active" routerLink="log-in">Sign In</a>
+        <a *ngIf="this.authService.isLoggedIn" routerLinkActive="active" routerLink="sign-up">Sign UP</a>
+        <button (click)="logout()" *ngIf="!this.authService.isLoggedIn" type="button">Logout</button>
+				<!-- Este botón y el enlace al User Profile aparecerán gracias al ngIf si el usuario es logueado -->
+    </nav>
+</div>
