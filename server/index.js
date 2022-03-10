@@ -28,18 +28,18 @@ app.use('/api', api)
 // Definimos el puerto desde el dotenv y si no lo hubiera el 4000
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
-    console.log(`Connected to port http://localhost:${port}`);
+    console.log(`Connected to http://localhost:${port}`);
 })
 
 // Manejamos los errores
-app.use((req, res, next) => {
-    setImmediate(() => {
-        next(new Error('Something went wrong'));
-    });
+app.use('*', (req, res, next) => {
+    const error = new Error('Not found');
+    error.status = 404;
+    return next(error);
 });
 
-app.use(function (err, req, res, next) {
-    console.error(err.message);
-    if (!err.statusCode) err.statusCode = 500;
-    res.status(err.statusCode).send(err.message);
+app.use((err, _req, res, _next) => {
+    return res
+        .status(err.status || 500)
+        .json(err.message || 'Error on server');
 });

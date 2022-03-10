@@ -10,7 +10,7 @@ let userSchema = new Schema({
     },
     email: {
         type: String,
-        unique: true //En este campo indicamos que solo puede haber un usuario con un e-mail único
+        unique: true //Solo puede haber un usuario con un e-mail único
     },
     password: {
         type: String
@@ -19,7 +19,5 @@ let userSchema = new Schema({
     collection: 'users'
 })
 
-//Le indicamos a través del campo unique en el Schema que nos lo valide gracias al plugin 
-//instalado y su mensaje al matchearlo si existiera
 userSchema.plugin(uniqueValidator, { message: 'Email already in use.' });
 module.exports = mongoose.model('User', userSchema); //Exportamos el esquema

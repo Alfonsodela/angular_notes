@@ -13,7 +13,7 @@ router.post("/register-user",
             .not()
             .isEmpty()
             .isLength({ min: 3 })
-            .withMessage('Name must be atleast 3 characters long'),
+            .withMessage('Name must be at least 3 characters long'),
         check('email', 'Email is required')
             .not()
             .isEmpty(),
