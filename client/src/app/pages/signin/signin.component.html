@@ -1,0 +1,13 @@
+<div class="form-container" *ngIf="signinForm">
+    <form [formGroup]="signinForm" (submit)="signinUser()" >
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" placeholder="John@Example.com" formControlName="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" placeholder="Something secret" formControlName="password" required>
+        </div>
+        <button type="submit" class="btn-signin">Sign In</button>
+    </form>
+</div>

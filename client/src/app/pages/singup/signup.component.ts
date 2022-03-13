@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { AuthService } from '../../../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  signupForm: FormGroup;
+  public signupForm?: FormGroup;
 
   constructor(
     public fb: FormBuilder,
@@ -27,13 +27,17 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() { }
 
-  registerUser() {
-    this.authService.signUp(this.signupForm.value).subscribe((res) => {
-      if (res.result) {
-        this.signupForm.reset()
-        this.router.navigate(['log-in']);
-      }
-    })
+  public signupUser() {
+    if (this.signupForm?.value) {
+      this.authService.signUp(this.signupForm?.value).subscribe(
+        (res) => {
+            if (res.result) {
+              this.signupForm?.reset()
+              this.router.navigate(['sign-in']);
+            }
+            console.log(res)
+         })
+    }
   }
 
 }

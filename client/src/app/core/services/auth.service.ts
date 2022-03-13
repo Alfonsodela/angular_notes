@@ -1,86 +1,86 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {
+  User,
+  UserSignInResponse,
+  UserSignUpResponse,
+} from '../models/user.models';
+import { Observable, ReplaySubject, tap, throwError } from 'rxjs';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+export class AuthService {
+  public userLogged: ReplaySubject<string | undefined> = new ReplaySubject<
+    string | undefined
+  >();
 
-export class AuthService { 
-	//Definimos el endpoint y los headers para poder realizar la petición
-  endpoint: string = 'http://localhost:4000/api';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-  currentUser = {}; //Aquí almacenaremos el usuario 
+  constructor(private httpClient: HttpClient, private router: Router) {
 
-  constructor(
-    private http: HttpClient,
-    public router: Router
-  ) {
+    const userID = this.getUserId();
+    if (userID) {
+      this.userLogged.next(userID)
+    }
+
   }
 
-  // Sign-up
-  signUp(user: User): Observable<any> {
-    let api = `${this.endpoint}/register-user`;
-    return this.http.post(api, user)
+  public signIn(user: User) {
+    return this.httpClient
+      .post<UserSignInResponse>(`${environment.baseApiURL}/sign-in`, user)
       .pipe(
-        catchError(this.handleError)
-      )
-  }
-
-  // Sign-in
-  signIn(user: User) {
-    return this.http.post<any>(`${this.endpoint}/signin`, user)
-      .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token)
-				//Seteamos el token
-        this.getUserProfile(res._id).subscribe((res) => {
-          this.currentUser = res;
-          this.router.navigate(['user-profile/' + res.msg._id]);
-				//Volvemos al user-profile una vez ejecutada la función
+        tap((res: UserSignInResponse) => {
+          if (res.token) {
+            // When  the user sign in successfully, then the token and the user id provide will be saved onto local storage
+            const user = JSON.stringify({ token: res.token, id: res._id });
+            localStorage.setItem('access_token', user);
+            this.userLogged.next(res._id);
+            this.router.navigate(['list']);
+          }
         })
-      })
+      );
   }
 
-  getToken() {
-    return localStorage.getItem('access_token');
+  public signUp(user: User): Observable<UserSignUpResponse> {
+    return this.httpClient.post<UserSignUpResponse>(
+      `${environment.baseApiURL}/sign-up`,
+      user
+    );
   }
-	//
+
+  public logOut() {
+    let removeToken = localStorage.removeItem('access_token');
+    this.userLogged.next(undefined);
+    if (removeToken == null) {
+      this.router.navigate(['']);
+    }
+  }
+
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
-    return (authToken !== null) ? true : false;
+    return authToken != null ? true : false;
   }
 
-  doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['log-in']);
-    }
+  // These methods are for saving the data stored in localStorage, so that we can use them in the future.
+
+  public getToken(): string {
+    const user = localStorage.getItem('access_token');
+    // Since the data comes from the localStorage, then we need to make a JSON parse to change 
+    // them from string to object and then have access to the attributes token and user id
+    return user ? JSON.parse(user)?.token : null;
   }
 
-  // User profile
-  getUserProfile(id: string): Observable<any> {
-    let api = `${this.endpoint}/user-profile/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: any) => {
-        return res || {}
-      }),
-      catchError(this.handleError)
-    )
+  public getUserId(): string {
+    const user = localStorage.getItem('access_token');
+    return user ? JSON.parse(user)?.id : null;
   }
 
-  // Error 
-  handleError(error: HttpErrorResponse) {
-    let msg = '';
-    if (error.error instanceof ErrorEvent) {
-      // client-side error
-      msg = error.error.message;
-    } else {
-      // server-side error
-      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(msg);
+  public getUserProfile(id: string):Observable<UserSignUpResponse> {
+    return this.httpClient.get<UserSignUpResponse>(`${environment.baseApiURL}/user-profile/${id}`);
   }
 }

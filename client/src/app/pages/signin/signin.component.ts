@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
-
 
 @Component({
   selector: 'app-signin',
@@ -17,17 +16,23 @@ export class SigninComponent implements OnInit {
     public fb: FormBuilder,
     public authService: AuthService,
     public router: Router
-  ) {
+  ) { 
     this.signinForm = this.fb.group({
       email: [''],
       password: ['']
     })
   }
 
-  ngOnInit() { }
+  ngOnInit(): void {
+  }
 
-  loginUser() {
-    this.authService.signIn(this.signinForm?.value)
+  signinUser() {
+    if (this.signinForm?.value) {
+      this.authService.signIn(this.signinForm.value).subscribe({
+        next: (res) => console.log(res),
+        error: (err) => console.log(err)
+      });
+    }
   }
 
 }

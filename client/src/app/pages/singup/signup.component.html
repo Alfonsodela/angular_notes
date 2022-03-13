@@ -1,0 +1,22 @@
+<div *ngIf="this.signupForm"> 
+     <form [formGroup]="signupForm" (ngSubmit)="signupUser()"> 
+         <h3>Please sign up</h3> 
+         <div> 
+             <label>Name</label> 
+             <input type="text" class="form-control" formControlName="name" placeholder="John" required> 
+         </div> 
+         <div> 
+             <label>Email</label> 
+             <input type="email" class="form-control" formControlName="email" placeholder="John@example.com" required>  
+         </div> 
+         <div> 
+             <label>Password</label> 
+             <input type="password" class="form-control" formControlName="password" placeholder="Something secret" required>  
+         </div> 
+         <div> 
+             <label>Emoji</label> 
+             <input type="text" class="form-control" formControlName="emoji" placeholder="Write your emoji" required> 
+         </div> 
+         <button type="submit">Sign up</button> 
+     </form> 
+ </div>
