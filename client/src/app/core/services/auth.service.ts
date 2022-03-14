@@ -22,12 +22,10 @@ export class AuthService {
   >();
 
   constructor(private httpClient: HttpClient, private router: Router) {
-
     const userID = this.getUserId();
     if (userID) {
-      this.userLogged.next(userID)
+      this.userLogged.next(userID);
     }
-
   }
 
   public signIn(user: User) {
@@ -70,7 +68,7 @@ export class AuthService {
 
   public getToken(): string {
     const user = localStorage.getItem('access_token');
-    // Since the data comes from the localStorage, then we need to make a JSON parse to change 
+    // Since the data comes from the localStorage, then we need to make a JSON parse to change
     // them from string to object and then have access to the attributes token and user id
     return user ? JSON.parse(user)?.token : null;
   }
@@ -80,7 +78,9 @@ export class AuthService {
     return user ? JSON.parse(user)?.id : null;
   }
 
-  public getUserProfile(id: string):Observable<UserSignUpResponse> {
-    return this.httpClient.get<UserSignUpResponse>(`${environment.baseApiURL}/user-profile/${id}`);
+  public getUserProfile(id: string): Observable<UserSignUpResponse> {
+    return this.httpClient.get<UserSignUpResponse>(
+      `${environment.baseApiURL}/user-profile/${id}`
+    );
   }
 }

@@ -19,5 +19,9 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule, 
     RouterModule
   ],
+  exports: [
+    NavComponent,
+    FooterComponent
+  ]
 })
 export class CoreModule { }

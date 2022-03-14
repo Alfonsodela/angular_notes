@@ -1,1 +1,12 @@
-<p>footer works!</p>
+<div class="footer-wrap">
+    <p>Follow us: </p>
+        <ul class="footer-list">
+            <li class="footer-list__item" *ngFor="let element of footer">
+                <a class="footer-list__item--link" routerLink="{{ element.link }}"
+                >
+                {{ element.name}}
+                </a>
+            </li>
+          </ul>
+    <p>&copy; 2022 - Noted</p>
+</div>

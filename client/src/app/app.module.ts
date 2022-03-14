@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptor';
-
+import { CoreModule } from './core/core/core.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { AuthInterceptor } from './core/services/interceptors/authconfig.interce
     BrowserModule,
     SharedModule,
     HttpClientModule, 
-    RouterModule
+    RouterModule,
+    CoreModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
