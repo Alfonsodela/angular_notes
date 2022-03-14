@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from './form/form.component';
+import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
+import { NoteComponent } from './components/note/note.component';
 
 
 
 @NgModule({
   declarations: [
-    FormComponent
+    FormComponent,
+    NoteComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,10 @@ import { AppRoutingModule } from '../app-routing.module';
     RouterModule,
     HttpClientModule,
     AppRoutingModule
+  ],
+  exports: [
+    NoteComponent,
+    FormComponent
   ]
 })
 export class SharedModule { }

@@ -1,3 +1,4 @@
+import { NoteInterface } from 'src/app/core/models/note.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesListComponent implements OnInit {
 
+  public notes: NoteInterface[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
