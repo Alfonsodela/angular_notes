@@ -9,6 +9,8 @@ const { connect } = require("./api/utils/database/connect");
 
 // Express APIs
 const api = require('./api/routes/user.routes');
+const notesRouter = require('./api/routes/notes.routes');
+
 //Ejecutamos la funcion que conecta con la db
 connect();
 
@@ -23,7 +25,9 @@ app.use(cors());
 // Aquí indicamos las rutas a usar
 app.use('/public', express.static('public'));
 
-app.use('/api', api)
+
+app.use('/api', api);
+app.use('/notes', notesRouter);
 
 // Definimos el puerto desde el dotenv y si no lo hubiera el 4000
 const port = process.env.PORT || 4000;
