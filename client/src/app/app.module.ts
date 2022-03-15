@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AuthInterceptor } from './core/services/interceptors/authconfig.interceptor';
 import { CoreModule } from './core/core.module';
 
@@ -19,18 +19,18 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     BrowserModule,
     SharedModule,
-    HttpClientModule, 
+   
     RouterModule,
     CoreModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+    
+  
+  
+  
+    
   ],
   bootstrap: [AppComponent]
 })
