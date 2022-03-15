@@ -1,1 +1,38 @@
-<p>form works!</p>
+<form
+  *ngIf="createNoteForm"
+  (submit)="saveNote($event)"
+  [formGroup]="createNoteForm"
+  class="form"
+>
+  <div class="field-container">
+    <input class="form__input" placeholder="Title" formControlName="title" />
+    <p
+      *ngIf="
+        !createNoteForm.get('title')?.valid &&
+        createNoteForm.get('title')?.dirty &&
+        createNoteForm.get('title')?.errors?.['required']"
+      class="input-error"
+    >
+      This value is required
+    </p>
+  </div>
+  <div class="field-container">
+    <textarea
+      class="form__input form__textarea"
+      formControlName="description"
+    ></textarea>
+  </div>
+  <div class="field-container">
+    <input class="form__input" placeholder="date" formControlName="date" />
+    <p
+      *ngIf="
+        !createNoteForm.get('date')?.valid &&
+        createNoteForm.get('date')?.dirty &&
+        createNoteForm.get('date')?.errors?.['required']"
+      class="input-error"
+    ></p>
+  </div>
+  <button class="form__button" type="submit" [disabled]="!createNoteForm.valid">
+    {{ note ? "Edit" : "Create" }}
+  </button>
+</form>

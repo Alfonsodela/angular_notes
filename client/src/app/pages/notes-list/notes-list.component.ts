@@ -1,3 +1,4 @@
+import { NoteService } from 'src/app/core/services/note.service';
 import { NoteInterface } from 'src/app/core/models/note.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class NotesListComponent implements OnInit {
 
   public notes: NoteInterface[] = [];
-
-  constructor() { }
+  
+  constructor(private NoteService: NoteService) { }
 
   ngOnInit(): void {
+    this.getNotes();
+  }
+
+  public getNotes() {
+    this.NoteService.getNotes().subscribe((notes) => {
+      this.notes = notes;
+    });
   }
 }

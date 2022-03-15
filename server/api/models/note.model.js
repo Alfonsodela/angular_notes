@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const noteSchema = new Schema({
-  title: { type: string, required: true },
-  description: { type: string, required: true },
-  date: { type: string, required: true },
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  date: { type: String, required: true },
 });
 
 const Note = mongoose.model('Note', noteSchema);
