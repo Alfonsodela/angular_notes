@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../app-routing.module';
 import { NoteComponent } from './components/note/note.component';
 
 
@@ -18,7 +17,6 @@ import { NoteComponent } from './components/note/note.component';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
   ],
   exports: [
     NoteComponent,
