@@ -31,21 +31,25 @@ const routes: Routes = [
   },
   {
     path: `user-profile/:id`, loadChildren: () =>
-      import('./pages/user-profile/user-profile.module').then(m => m.UserProfileRoutingModule),
+      import('src/app/pages/user-profile/user-profile.module').then(m => m.UserProfileModule),
       canActivate: [AuthGuard] //Con esto protegemos esta ruta
   },
   {
     path: `sign-up`, loadChildren: () =>
-      import('./pages/singup/singup.module').then(m => m.SingupModule)
+      import('src/app/pages/singup/singup.module').then(m => m.SingupModule)
   },
   {
     path: `sign-in`, loadChildren: () =>
-      import('./pages/signin/signin.module').then(m => m.SigninModule)
+      import('src/app/pages/signin/signin.module').then(m => m.SigninModule)
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    AuthGuard,
+  
+  ]
 })
 export class AppRoutingModule { }
