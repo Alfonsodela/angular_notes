@@ -35,4 +35,8 @@ export class SigninComponent implements OnInit {
     }
   }
 
+  public navigateToList() {
+    this.router.navigate(["/sign-up"]);
+  }
+
 }

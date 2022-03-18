@@ -14,6 +14,9 @@ let userSchema = new Schema({
     },
     password: {
         type: String
+    },
+        emoji: {
+        type: String
     }
 }, {
     collection: 'users'
