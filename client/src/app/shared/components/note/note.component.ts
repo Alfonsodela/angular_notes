@@ -16,4 +16,8 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public editNote() {
+    this.router.navigate(['/edit-note', this.note?.id]);
+  }
+ 
 }
