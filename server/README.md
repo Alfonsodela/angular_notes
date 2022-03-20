@@ -8,6 +8,4 @@
 - /api/user-profile/:id : To get an user profile with an ID
 - /api/update-user/:id : To edit an user profile with an ID
 - /api/delete-user/:id : To delete an user profile with an ID
-
-
-- /notes/ : To get all notes
+- /api/notes/ : To get all notes
