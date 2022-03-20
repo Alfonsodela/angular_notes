@@ -8,11 +8,15 @@
   border-bottom: #f1f1f1 1px solid;
 
   &__brand {
-    font-weight: 600;
-    font-size: 2rem;
+
     margin: 0 3.5rem;
     font-style: italic;
     align-self: center;
+    cursor: pointer;
+    h1 {
+      font-weight: 600;
+      font-size: 2rem;
+    }
   }
 
   // &__icon {

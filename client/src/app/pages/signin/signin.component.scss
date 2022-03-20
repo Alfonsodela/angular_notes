@@ -1,0 +1,43 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 60vh;
+  width: 100vw;
+  &__title {
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  &__group {
+    margin: 5px 0;
+  }
+  &__input {
+    margin: 10px;
+    width: 90%;
+    height:25px;
+  }
+
+  form {
+      width: 200px;
+  }
+}
+
+.btn-signin {
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: white;
+    font-weight: 600;
+    border-radius: 10px;
+
+    &:hover {
+        background-color:grey;
+        color: white;
+        cursor: pointer;
+    }
+
+}
