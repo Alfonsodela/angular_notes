@@ -1,41 +1,46 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    padding: 8px;
-    background-color: white;
-    border-bottom: #f1f1f1 1px solid;
-  
-    &__brand{ 
-      font-weight: 600;
-      font-size: 2rem;
-      margin: 0 3.5rem;
-      font-style: italic;
-      align-self: center;
-    }
-  
-    // &__icon {
-    // color: white;
-    // margin: 16px;
-    // }
-  
-    &__nav {
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      margin: 0 1.5rem;
-      align-self: center;
-    }
-  
-    &__link {
-      margin: 0 2rem;
-      cursor: pointer;
-      text-decoration: none;
-      color: #303030;
-  
-      &:hover {
-        text-decoration: underline;
-      }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 8px;
+  background-color: white;
+  border-bottom: #f1f1f1 1px solid;
+
+  &__brand {
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0 3.5rem;
+    font-style: italic;
+    align-self: center;
+  }
+
+  // &__icon {
+  // color: white;
+  // margin: 16px;
+  // }
+
+  &__nav {
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-right: 3.5rem;
+    align-self: center;
+  }
+
+  &__link {
+    margin-left: 3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    color: rgb(31, 31, 31);
+
+    &:hover {
+      border-color: grey;
+      border-width: 3px;
     }
   }
+}

@@ -25,13 +25,14 @@
             font-size: 1.2rem;
             font-weight: 600;
             text-decoration: none;
-            border: 1px solid grey;
-            padding: 0.5rem 0.7rem;
+            border: 1px solid rgb(223, 223, 223);
+            padding: 0.5rem 0.9rem;
             border-radius: 10px;
+            color: black;
 
             &:hover {
-                background-color: grey;
-                color: black;
+                background-color: rgb(194, 194, 194);
+                color: white;
             }
         }
     }
