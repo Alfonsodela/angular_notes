@@ -1,0 +1,38 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    padding: 1rem;
+    height:60vh;
+    width:fit-content;
+
+    h4 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 10px 15px;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 2rem;
+        a {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid grey;
+            padding: 0.5rem 0.7rem;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: grey;
+                color: black;
+            }
+        }
+    }
+}
