@@ -27,7 +27,7 @@ app.use('/public', express.static('public'));
 
 
 app.use('/api', api);
-app.use('/notes', notesRouter);
+app.use('/api/notes', notesRouter);
 
 // Definimos el puerto desde el dotenv y si no lo hubiera el 4000
 const port = process.env.PORT || 4000;
