@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('src/app/pages/notes-list/notes-list.module').then(m => m.NotesListModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'list/:id',
@@ -22,12 +22,12 @@ const routes: Routes = [
   {
     path: 'create-notes',
     loadChildren: () => import('src/app/pages/create-notes/create-notes.module').then(m => m.CreateNotesModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'edit-notes',
     loadChildren: () => import('src/app/pages/edit-notes/edit-notes.module').then(m => m.EditNotesModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: `user-profile/:id`, loadChildren: () =>
