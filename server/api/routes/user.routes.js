@@ -7,7 +7,7 @@ const authorize = require("../utils/middlewares/auth");
 const { check, validationResult } = require('express-validator');
 
 // Sign-up
-router.post("/register-user",
+router.post("/sign-up",
     [
         check('name')
             .not()
@@ -51,7 +51,7 @@ router.post("/register-user",
     });
 
 // Sign-in
-router.post("/signin", (req, res, next) => {
+router.post("/sign-in", (req, res, next) => {
     let getUser;
     userSchema.findOne({
         email: req.body.email

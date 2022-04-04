@@ -40,7 +40,7 @@ export class AuthService {
             const user = JSON.stringify({ token: res.token, id: res._id });
             localStorage.setItem('access_token', user);
             this.userLogged.next(res._id);
-            this.router.navigate(['']);
+            this.router.navigate(['/list']);
           }
         })
       );

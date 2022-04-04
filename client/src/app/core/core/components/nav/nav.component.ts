@@ -26,7 +26,6 @@ export class NavComponent implements OnInit {
       this.router.navigate(['list', this.userID]);
     } else {
       this.router.navigate(['sign-in']);
-      // this.userIcon = faUserCheck;
     }
   }
 }

@@ -1,15 +1,12 @@
 <div class="header">
     <div [routerLink]="['']" class="header__brand">
-        <p class="header__title">Noted</p>
+        <h1 class="header__title">Noted</h1>
     </div>
     <div class="header__nav">
         <a [routerLink]="['/list']" class="header__link">Notes</a>
-        <a [routerLink]="['/create-notes']" class="header__link">Add</a>
-        <a [routerLink]="['/my-account']" class="header__link">My account</a>
+        <a [routerLink]="['/user-profile/:id']" class="header__link">My account</a>
     </div>
 </div>
-
-<div class="header">
     
     
 

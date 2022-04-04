@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const uniqueValidator = require('mongoose-unique-validator');
 
-//Definimos el equema de nuestro usuario
+//Definimos el esquema de nuestro usuario
 let userSchema = new Schema({
     name: {
         type: String
@@ -13,6 +13,9 @@ let userSchema = new Schema({
         unique: true //Solo puede haber un usuario con un e-mail único
     },
     password: {
+        type: String
+    },
+    emoji: {
         type: String
     }
 }, {

@@ -4,8 +4,9 @@
   "description": "Node API for notes app",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "poblar:notes": "node api/seeds/note.seed.js"
   },
   "keywords": [],
   "author": "",

@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('src/app/pages/notes-list/notes-list.module').then(m => m.NotesListModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'list/:id',
@@ -22,30 +22,34 @@ const routes: Routes = [
   {
     path: 'create-notes',
     loadChildren: () => import('src/app/pages/create-notes/create-notes.module').then(m => m.CreateNotesModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'edit-notes',
     loadChildren: () => import('src/app/pages/edit-notes/edit-notes.module').then(m => m.EditNotesModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: `user-profile/:id`, loadChildren: () =>
-      import('./pages/user-profile/user-profile.module').then(m => m.UserProfileRoutingModule),
+      import('src/app/pages/user-profile/user-profile.module').then(m => m.UserProfileModule),
       canActivate: [AuthGuard] //Con esto protegemos esta ruta
   },
   {
     path: `sign-up`, loadChildren: () =>
-      import('./pages/singup/singup.module').then(m => m.SingupModule)
+      import('src/app/pages/singup/singup.module').then(m => m.SingupModule)
   },
   {
     path: `sign-in`, loadChildren: () =>
-      import('./pages/signin/signin.module').then(m => m.SigninModule)
+      import('src/app/pages/signin/signin.module').then(m => m.SigninModule)
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    AuthGuard,
+  
+  ]
 })
 export class AppRoutingModule { }
