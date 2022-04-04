@@ -100,7 +100,7 @@ router.route('/').get((req, res) => {
 
 // Get Single User
 router.route('/user-profile/:id').get(authorize, (req, res, next) => {
-    userSchema.findById(req.params.id, (error, data) => {
+    return userSchema.findById(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {
@@ -108,7 +108,19 @@ router.route('/user-profile/:id').get(authorize, (req, res, next) => {
                 msg: data
             })
         }
+    }).populate("notes").then((user) => {
+        if (!user) {
+            const error = new Error('User not found');
+            error.status = 404;
+            return next(error);
+        }
+        return res.status(200).json(user);
     })
+    .catch(err => {
+        const error = new Error(err);
+        error.status = 500;
+        return next(error);
+    });
 })
 
 // Update User
@@ -124,6 +136,25 @@ router.route('/update-user/:id').put((req, res, next) => {
         }
     })
 })
+
+router.put('/:id/notes', (req, res, next) => {
+    const userId = req.params.id;
+    const noteToAdd = req.body.noteId;
+
+    return userSchema.findByIdAndUpdate(
+        userId,
+        { $push: { notes: noteToAdd } },
+        { new: true }
+    ).populate("notes")
+        .then(userUpdated => {
+            return res.status(200).json(userUpdated);
+        })
+        .catch(err => {
+            const error = new Error(err);
+            error.status = 500;
+            return next(error);
+        });
+});
 
 // Delete User
 router.route('/delete-user/:id').delete((req, res, next) => {
