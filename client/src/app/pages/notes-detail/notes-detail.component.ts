@@ -21,6 +21,7 @@ export class NotesDetailComponent implements OnInit {
       const noteId = params["id"];
       this.NoteService.getNotesById(noteId).subscribe((note) => {
         this.notes = note;
+        console.log(this.notes)
       });
     });
   }
