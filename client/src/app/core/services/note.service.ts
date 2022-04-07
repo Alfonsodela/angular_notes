@@ -18,11 +18,11 @@ export class NoteService {
 
   public getNotesById(id: string): Observable<NoteInterface> {
     return this.httpClient.get(`${environment.baseApiURL}/notes/${id}`
-    ) as Observable<NoteInterface>;
+    ) as Observable<NoteInterface>
   }
 
   public createNote(note: NoteInterface): Observable<NoteInterface> {
-    return this.httpClient.post(`${environment.baseApiURL}/notes`, note) as Observable<NoteInterface>;
+    return this.httpClient.post(`${environment.baseApiURL}/notes/`, note) as Observable<NoteInterface>;
   }  
 
   public editNote(id: string, body: NoteInterface) {

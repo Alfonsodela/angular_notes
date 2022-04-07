@@ -31,8 +31,8 @@ export class FormComponent implements OnInit {
     if (this.createNoteForm?.valid) {
 
       let noteRequest;
-      if (this.note?.id) {
-        noteRequest = this.NoteService.editNote(this.note.id.toString(), this.createNoteForm.value)
+      if (this.note?._id) {
+        noteRequest = this.NoteService.editNote(this.note._id.toString(), this.createNoteForm.value)
       } else {
         noteRequest = this.NoteService.createNote(this.createNoteForm.value)
       }

@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class NotesListComponent implements OnInit {
 
   public notes: NoteInterface[] = [];
+  public filterValue: string = '';
   
   constructor(private NoteService: NoteService) { }
 
@@ -20,6 +21,7 @@ export class NotesListComponent implements OnInit {
   public getNotes() {
     this.NoteService.getNotes().subscribe((notes) => {
       this.notes = notes;
+      console.log(this.notes)
     });
   }
 }

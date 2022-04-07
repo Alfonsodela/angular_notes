@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditNotesComponent implements OnInit {
 
-  public notes?: NoteInterface;
+  public note?: NoteInterface;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +21,8 @@ export class EditNotesComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const noteId = params["id"];
       this.NoteService.getNotesById(noteId).subscribe((note) => {
-        this.notes = note;
+        this.note = note;
+        console.log(note)
       })
     })
   }

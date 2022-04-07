@@ -1,13 +1,13 @@
 <div class="form-container" *ngIf="signinForm">
-    <h2 class="form-container__title">Sign In</h2>
+    <h2 class="form-container__title">Sign In to Noted</h2>
     <form [formGroup]="signinForm" (submit)="signinUser()" >
-        <div class="form-container__group">
-            <label for="email">Email</label>
-            <input type="email" class="form-container__input" placeholder="John@Example.com" formControlName="email" required>
+        <div class="form-container__group"> 
+            <label for="email"></label>
+            <input type="email" class="form-container__input" placeholder="Email adress" formControlName="email" required>
         </div>
         <div class="form-container__group">
-            <label for="password">Password</label>
-            <input type="password" class="form-container__input" placeholder="Something secret" formControlName="password" required>
+            <label for="password"></label>
+            <input type="password" class="form-container__input" placeholder="Password" formControlName="password" required>
         </div>
         <button type="submit" class="btn-signin">Sign In</button>
     </form>
