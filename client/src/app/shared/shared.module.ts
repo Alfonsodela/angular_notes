@@ -5,13 +5,15 @@ import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NoteComponent } from './components/note/note.component';
+import { FilterNotesPipe } from './pipes/filter-notes.pipe';
 
 
 
 @NgModule({
   declarations: [
     FormComponent,
-    NoteComponent
+    NoteComponent,
+    FilterNotesPipe
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { NoteComponent } from './components/note/note.component';
   ],
   exports: [
     NoteComponent,
-    FormComponent
+    FormComponent,
+    FilterNotesPipe
   ]
 })
 export class SharedModule { }
