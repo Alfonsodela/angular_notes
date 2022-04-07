@@ -18,9 +18,18 @@ export class NotesListComponent implements OnInit {
     this.getNotes();
   }
 
+  public deleteNote(_id: string) {
+    this.NoteService.deleteNote(_id).subscribe((res) => {
+      console.log(res);
+      this.getNotes();
+    });
+  }
+
   public getNotes() {
     this.NoteService.getNotes().subscribe((notes) => {
       this.notes = notes;
     });
   }
 }
+
+

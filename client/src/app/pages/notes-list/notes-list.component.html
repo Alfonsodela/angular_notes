@@ -15,8 +15,12 @@
         *ngFor="let note of notes | filterNotes: filterValue"
         class="note-list__element"
         [note]="note"
+        (onDeleteNote)="deleteNote($event)"
     ></app-note>
 </div>
+
+
+
 
 
 

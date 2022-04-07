@@ -25,7 +25,7 @@ export class NoteComponent implements OnInit {
 
   public deleteNote() {
     if (this.note) {
-      this.onDeleteNote.emit(this.note._id);
+      this.onDeleteNote.emit(this.note?._id);
       console.log("ok borrar")
     }
   }
