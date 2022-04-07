@@ -25,7 +25,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   {
-    path: 'edit-notes',
+    path: 'edit-note/:id',
     loadChildren: () => import('src/app/pages/edit-notes/edit-notes.module').then(m => m.EditNotesModule),
     // canActivate: [AuthGuard]
   },

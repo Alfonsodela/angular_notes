@@ -17,17 +17,16 @@ export class NoteComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.note?._id)
-    
   }
 
   public editNote() {
-    this.router.navigate(['/edit-note', this.note?._id]);
+    this.router.navigate(['/edit-note/', this.note?._id]);
   }
 
   public deleteNote() {
     if (this.note) {
       this.onDeleteNote.emit(this.note._id);
+      console.log("ok borrar")
     }
   }
  
