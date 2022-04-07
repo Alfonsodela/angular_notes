@@ -1,3 +1,4 @@
+
 <div *ngIf="note" class="note">
   <div class="note__info">
     <h3 class="note__title">{{ note.title }}</h3>
@@ -11,7 +12,13 @@
       [routerLink]="['/list', note.id]"
       >Show more
     </a>
-    <button class="note__button note__button--delete">Delete</button>
-    <button class="note__button note__button--edit">Edit</button>
+    <button class="note__button note__button--delete"
+    (click)="deleteNote()"
+    >Delete</button>
+    <button class="note__button note__button--edit"
+    (click)="editNote()"
+    >Edit</button>
   </div>
 </div>
+
+
