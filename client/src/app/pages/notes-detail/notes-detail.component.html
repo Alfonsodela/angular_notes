@@ -1,1 +1,11 @@
-<p>notes-detail works!</p>
+<p>notes-list works</p>
+<div
+    *ngIf="notes"
+    class="note"
+>
+    <div class="note__info">
+        <h3 clas="note__title">{{notes.title}}</h3>
+        <p class="note__description">{{notes.description}}</p>
+        <p class="note__date">{{notes.date}}</p>
+    </div>
+</div>
