@@ -6,10 +6,12 @@
   justify-content: center;
   height: 60vh;
   width: 100vw;
+
   &__title {
+
     align-self: center;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 20px;
   }
 
@@ -17,9 +19,11 @@
     margin: 5px 0;
   }
   &__input {
-    margin: 10px;
-    width: 90%;
-    height:25px;
+
+    // margin: 10px;
+    width: 130%;
+    height: 45px;
+    border-radius: 5px;
   }
 
   form {
@@ -28,14 +32,17 @@
 }
 
 .btn-signin {
+    width: 105%;
     padding: 5px 10px;
     font-size: 1rem;
-    background-color: white;
+    background-color: #705C9A;
+    color: white;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
 
     &:hover {
-        background-color:grey;
+        background-color: #E89A3E;
         color: white;
         cursor: pointer;
     }

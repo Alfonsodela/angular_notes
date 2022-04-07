@@ -1,6 +1,19 @@
 <div class="notes-list">
+    <div>
+        <h2>List of notes ({{notes.length}})</h2>
+    </div>
+    <div>
+        <div class="notes-search">
+           <input
+            [(ngModel)]="filterValue" 
+            class="note-search__placeholder"
+            placeholder="search"
+            />
+        </div>
+    </div>
     <app-note
-        *ngFor="let note of notes"
+        *ngFor="let note of notes | filterNotes: filterValue"
+        class="note-list__element"
         [note]="note"
     ></app-note>
 </div>
