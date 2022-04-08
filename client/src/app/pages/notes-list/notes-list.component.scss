@@ -1,0 +1,30 @@
+.notes-search {
+  display: flex;
+  flex-direction: row;
+  // justify-content: left;
+  text-align: center;
+
+  height: 35px;
+  width: 95%;
+  padding: 10px;
+  margin-top: 30px;
+
+  background: #f1f3f4;
+  border-radius: 8px;
+  font-size: 16px;
+
+  &__placeholder {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    margin-left: 20px;
+  }
+
+  &__icon {
+    color: grey;
+    font-size: 14px;
+  
+  }
+}

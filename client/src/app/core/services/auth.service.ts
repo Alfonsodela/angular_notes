@@ -80,7 +80,7 @@ export class AuthService {
     return user ? JSON.parse(user)?.id : null;
   }
 
-  public getUserProfile(id: string):Observable<UserSignUpResponse> {
-    return this.httpClient.get<UserSignUpResponse>(`${environment.baseApiURL}/user-profile/${id}`);
+  public getUserProfile(id: string):Observable<User> {
+    return this.httpClient.get<User>(`${environment.baseApiURL}/user-profile/${id}`);
   }
 }

@@ -12,12 +12,12 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('src/app/pages/notes-list/notes-list.module').then(m => m.NotesListModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'list/:id',
     loadChildren: () => import('src/app/pages/notes-detail/notes-detail.module').then(m => m.NotesDetailModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-notes',

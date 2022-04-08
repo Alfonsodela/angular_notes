@@ -19,11 +19,12 @@
   <div class="field-container">
     <textarea
       class="form__input form__textarea"
+      placeholder="Add a note..."
       formControlName="description"
     ></textarea>
   </div>
   <div class="field-container">
-    <input class="form__input" placeholder="date" formControlName="date" />
+    <input class="form__input" placeholder="Date" formControlName="date" />
     <p
       *ngIf="
         !createNoteForm.get('date')?.valid &&

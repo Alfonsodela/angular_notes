@@ -1,26 +1,21 @@
 <div class="notes-list">
-    <div>
-        <h2>List of notes ({{notes.length}})</h2>
+  <div>
+    <!-- <h2> ({{notes.length}})</h2> -->
+  </div>
+  <div>
+    <div class="notes-search">
+      <img class="product-search__icon" src="../../../assets/icon-search.png" />
+      <input
+        [(ngModel)]="filterValue"
+        class="notes-search__placeholder"
+        placeholder="Search notes..."
+      />
     </div>
-    <div>
-        <div class="notes-search">
-           <input
-            [(ngModel)]="filterValue" 
-            class="note-search__placeholder"
-            placeholder="search"
-            />
-        </div>
-    </div>
-    <app-note
-        *ngFor="let note of notes | filterNotes: filterValue"
-        class="note-list__element"
-        [note]="note"
-        (onDeleteNote)="deleteNote($event)"
-    ></app-note>
+  </div>
+  <app-note
+    *ngFor="let note of notes | filterNotes: filterValue"
+    class="note-list__element"
+    [note]="note"
+    (onDeleteNote)="deleteNote($event)"
+  ></app-note>
 </div>
-
-
-
-
-
-

@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
         const id = params['id'];
         if (id) {
           this.authService.getUserProfile(id).subscribe(user => {
-            this.user = user.result;
+            this.user = user;
           })
         }
       })

@@ -10,7 +10,7 @@
   &__title {
 
     align-self: center;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 20px;
   }
@@ -21,9 +21,12 @@
   &__input {
 
     // margin: 10px;
-    width: 130%;
+    width: 170%;
     height: 45px;
+    margin-left: -75px;
     border-radius: 5px;
+    border: 1px solid #EAEAEA;
+    font-size: 18px;
   }
 
   form {
@@ -32,14 +35,17 @@
 }
 
 .btn-signin {
-    width: 105%;
+    width: 174%;
+    height: 55px;
+    margin-left: -75px;
     padding: 5px 10px;
-    font-size: 1rem;
-    background-color: #705C9A;
+    font-size: 1.3rem;
+    background-color:  #705C9A;
     color: white;
     font-weight: 600;
     border-radius: 5px;
     margin-top: 10px;
+    border: none;
 
     &:hover {
         background-color: #E89A3E;
