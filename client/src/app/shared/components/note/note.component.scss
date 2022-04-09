@@ -1,12 +1,12 @@
-.note {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   
     margin: 30px 0px;
-    padding: 13px;
+    padding: 0.8rem;
     width: 35em;
-    height: 15em;
+    height: auto;
     border: #eaeaea 1px solid;
     border-radius: 10px;
     box-shadow: 5px 10px 8px #888888;
@@ -14,4 +14,70 @@
     box-sizing: border-box;
   
   }
+
+.note {
+  text-align:justify;
+  border-bottom: 1px solid #eeee;
+  padding-bottom: 0.7rem;
+  &__title {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  &__description {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    color: grey;
+  }
+  &__date {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-decoration: dashed;
+    color: rgb(196, 112, 47);
+  }
+}
+
+.note-buttons-div {
+  padding-top: 0.7rem;
+}
+
+.note__button {
+  margin: 0 0.5rem;
+  background-color: transparent;
+  border: 0.5px solid rgb(147, 147, 147);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+
+  &__showmore {
+    margin-left: 0;
+    border-color:rgb(122, 179, 76);
+    color:rgb(122, 179, 76);
+    &:hover {
+      background-color:rgb(122, 179, 76);
+      color: white;
+    }
+  }
+
+  &__delete {
+    border-color:rgb(255,136,136);
+    color:rgb(255,136,136);
+    &:hover {
+      background-color:rgb(255, 136, 136);
+      color: white;
+    }
+  }
+
+  &__edit {
+    border-color:rgb(231, 136, 255);
+    color:rgb(231, 136, 255);
+    &:hover {
+      background-color:rgb(231, 136, 255);
+      color: white;
+    }
+  }
+}
   

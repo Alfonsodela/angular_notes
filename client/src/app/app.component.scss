@@ -1,13 +1,18 @@
+
+
 body {
     margin: 0;
     height: 100vh;
+    width: 100%;
 }
+
 
 
 .container {
     display:flex;
     justify-content: center;
     align-items: center;
-    height:fit-content;
+    min-height:72vh;
+    max-height: fit-content;
     align-content: center;
 }

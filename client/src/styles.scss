@@ -2,3 +2,22 @@
     margin: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #dbae61 #fafafa;
+  }
+  
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #fafafa;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #dbae61;
+    border-radius: 6px;
+    border: 0px none #ffffff;
+  }

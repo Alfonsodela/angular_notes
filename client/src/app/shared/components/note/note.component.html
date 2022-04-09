@@ -6,16 +6,16 @@
     <p class="note__date">{{ note.date }}</p>
     <!-- <a class="product__el product__more-info" [routerLink]="['/list', product.id]">Show more info</a> -->
   </div>
-  <div class="note__buttons">
+  <div class="note-buttons-div">
     <a
-      class="note__button note__button--showmore"
+      class="note__button note__button__showmore"
       [routerLink]="['/list', note._id]"
       >Show more
     </a>
-    <button class="note__button note__button--delete"
+    <button class="note__button note__button__delete"
     (click)="deleteNote()"
     >Delete</button>
-    <button class="note__button note__button--edit"
+    <button class="note__button note__button__edit"
     (click)="editNote()"
     >Edit</button>
   </div>

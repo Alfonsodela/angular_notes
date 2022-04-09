@@ -5,7 +5,7 @@
   class="form"
 >
   <div class="field-container">
-    <input class="form__input" placeholder="Title" formControlName="title" />
+    <input class="form__input form__title" placeholder="Title" formControlName="title" />
     <p
       *ngIf="
         !createNoteForm.get('title')?.valid &&
@@ -24,7 +24,7 @@
     ></textarea>
   </div>
   <div class="field-container">
-    <input class="form__input" placeholder="Date" formControlName="date" />
+    <input class="form__input form__date" placeholder="Date" formControlName="date" />
     <p
       *ngIf="
         !createNoteForm.get('date')?.valid &&
