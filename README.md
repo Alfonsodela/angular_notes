@@ -1,11 +1,10 @@
 
 
+https://user-images.githubusercontent.com/89443967/173225880-5309bde9-77c6-43e3-af87-be56896fb8d8.mp4
 
 
-https://user-images.githubusercontent.com/89443967/173224707-6d4ca124-f4df-439e-b37d-6e4a60cb363d.mp4
 
-
-<h1 align="center">Notes</h1>
+<h1 align="center">Noted</h1>
  
 ## 📝 Table of Contents
 - [About](#about)
