@@ -1,4 +1,4 @@
-<h1 align="center">Shopeame</h1>
+<h1 align="center">Notes</h1>
  
 ## 📝 Table of Contents
 - [About](#about)
