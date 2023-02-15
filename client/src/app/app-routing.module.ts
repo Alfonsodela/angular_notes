@@ -22,12 +22,12 @@ const routes: Routes = [
   {
     path: 'create-notes',
     loadChildren: () => import('src/app/pages/create-notes/create-notes.module').then(m => m.CreateNotesModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-note/:id',
     loadChildren: () => import('src/app/pages/edit-notes/edit-notes.module').then(m => m.EditNotesModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: `user-profile/:id`, loadChildren: () =>
